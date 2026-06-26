@@ -216,3 +216,10 @@ public double getAnswerRate() {
 > Java 8+ | Swing | Stream API | Lambda | Apache POI | Git
 >
 > 课程设计 2026
+
+---
+
+## 项目仓库
+
+- **完整项目仓库**：[github.com/qluliuliuliu/classroom-rollcall-system](https://github.com/qluliuliuliu/classroom-rollcall-system)
+- **个人Git仓库**：[github.com/yangyang6-6-6/Java-](https://github.com/yangyang6-6-6/Java-)
