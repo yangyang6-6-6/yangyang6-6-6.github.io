@@ -32,7 +32,7 @@ date: 2026-06-26 20:00:00
 
 ![](/images/architecture.svg)
 
-*红色标记为我负责的模块*
+*黄色标记为我负责的模块*
 
 ---
 
@@ -119,8 +119,6 @@ for (Student s : students) {
 }
 ```
 
-![](/images/statistics-code.png)
-
 ### 3. 统计界面 — StatisticsPanel.java
 
 界面顶部为四张汇总卡片，使用 `GridLayout(1, 4)` 布局：
@@ -147,8 +145,6 @@ String[] cols = {"排名", "学号", "姓名", "班级",
                  "被点名", "答出", "成功率"};
 ```
 
-![](/images/statistics-panel.png)
-
 ---
 
 ## 项目亮点
@@ -168,6 +164,20 @@ String[] cols = {"排名", "学号", "姓名", "班级",
 | Stream API | filter().count() 简洁完成过滤计数 |
 | Lambda 表达式 | (a, b) -> b.getTotalCalled() - a.getTotalCalled() 简化排序 |
 | 成功率计算 | 答出数 / 被点名数 x 100，分母为 0 时返回 0 |
+
+---
+
+## 界面截图
+
+以下截图来自个人 GitHub 上传的代码运行效果：
+
+**StatisticsService.java 代码实现**
+
+![](/images/statistics-code.png)
+
+**StatisticsPanel.java 统计界面展示**
+
+![](/images/statistics-panel.png)
 
 ---
 
