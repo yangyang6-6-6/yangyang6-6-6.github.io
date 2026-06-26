@@ -183,7 +183,7 @@ String[] cols = {"排名", "学号", "姓名", "班级",
 
 ## 总结
 
-通过这个项目，我对 Java Swing 桌面应用开发、Stream API 数据处理、MVC 架构设计有了更深入的理解。统计与数据分析模块虽然代码量不大，但涉及了从数据采集、计算到可视化展示的完整链路。
+通过这个项目，我对 Java Swing 桌面应用开发、Stream API 数据处理、MVC 架构设计有了更深入的理解。该模块完整覆盖了从数据采集、计算到可视化展示的全链路流程。
 
 > Java 8+ | Swing | Stream API | Lambda | Apache POI | Git
 >
