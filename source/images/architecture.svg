@@ -1,173 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif">
   <defs>
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#667eea"/>
       <stop offset="100%" style="stop-color:#764ba2"/>
     </linearGradient>
-    <linearGradient id="viewGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e3f2fd"/>
-      <stop offset="100%" style="stop-color:#bbdefb"/>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#fafbfc"/>
     </linearGradient>
-    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0f2f1"/>
-      <stop offset="100%" style="stop-color:#b2dfdb"/>
+    <linearGradient id="myHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdd835"/>
+      <stop offset="100%" style="stop-color:#f9a825"/>
     </linearGradient>
-    <linearGradient id="utilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#fce4ec"/>
-      <stop offset="100%" style="stop-color:#f8bbd0"/>
-    </linearGradient>
-    <linearGradient id="daoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e8f5e9"/>
-      <stop offset="100%" style="stop-color:#c8e6c9"/>
-    </linearGradient>
-    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f3e5f5"/>
-      <stop offset="100%" style="stop-color:#e1bee7"/>
-    </linearGradient>
-    <linearGradient id="storeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#eceff1"/>
-      <stop offset="100%" style="stop-color:#cfd8dc"/>
-    </linearGradient>
-    <linearGradient id="myBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f9a825"/>
-      <stop offset="100%" style="stop-color:#f57f17"/>
-    </linearGradient>
-    <filter id="shadowLayer" x="-2%" y="-5%" width="104%" height="115%">
-      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.1"/>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
     </filter>
-    <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#9e9e9e"/>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#78909c"/>
     </marker>
   </defs>
 
   <!-- 背景 -->
-  <rect width="800" height="680" fill="#f8f9fa" rx="12"/>
+  <rect width="800" height="620" fill="#f8f9fa" rx="12"/>
 
-  <!-- 标题 -->
-  <rect x="0" y="0" width="800" height="52" fill="url(#headerGrad)" rx="12"/>
-  <rect x="0" y="30" width="800" height="22" fill="url(#headerGrad)"/>
-  <text x="400" y="33" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">系统架构图 — 基于有状态的课堂点名系统</text>
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="800" height="50" fill="url(#headerGrad)" rx="12"/>
+  <rect x="0" y="25" width="800" height="25" fill="url(#headerGrad)"/>
+  <text x="400" y="32" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">系统架构 — 基于有状态的课堂点名系统</text>
 
-  <!-- ==================== View 层 ==================== -->
-  <rect x="30" y="68" width="740" height="122" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="68" width="50" height="122" fill="url(#viewGrad)" rx="10"/>
-  <rect x="60" y="68" width="20" height="122" fill="url(#viewGrad)"/>
-  <text x="55" y="135" text-anchor="middle" fill="#0d47a1" font-size="14" font-weight="bold" transform="rotate(-90,55,135)">View</text>
+  <!-- ========== 左侧：分层架构 ========== -->
 
-  <text x="100" y="94" fill="#0d47a1" font-size="14" font-weight="bold">界面层</text>
+  <!-- 标题标签 -->
+  <text x="50" y="80" fill="#333" font-size="13" font-weight="bold">MVC 分层架构</text>
 
-  <!-- 三个面板 -->
-  <rect x="100" y="105" width="200" height="36" rx="6" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
-  <text x="200" y="128" text-anchor="middle" fill="#1565c0" font-size="13" font-weight="bold">StudentPanel 学生管理</text>
+  <!-- View 层 -->
+  <rect x="30" y="92" width="380" height="95" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="30" y="92" width="380" height="22" rx="8" fill="#e3f2fd"/>
+  <rect x="30" y="106" width="380" height="8" fill="#e3f2fd"/>
+  <text x="50" y="108" fill="#1565c0" font-size="12" font-weight="bold">View 界面层</text>
 
-  <rect x="320" y="105" width="200" height="36" rx="6" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
-  <text x="420" y="128" text-anchor="middle" fill="#1565c0" font-size="13" font-weight="bold">RollCallPanel 课堂点名</text>
+  <rect x="42" y="122" width="105" height="24" rx="4" fill="#bbdefb"/>
+  <text x="94" y="138" text-anchor="middle" fill="#0d47a1" font-size="10">StudentPanel</text>
 
-  <rect x="540" y="105" width="200" height="36" rx="6" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
-  <!-- 黄色标记：我负责 -->
-  <rect x="540" y="105" width="6" height="36" rx="3" fill="#fdd835"/>
-  <text x="640" y="128" text-anchor="middle" fill="#1565c0" font-size="13" font-weight="bold">StatisticsPanel 数据统计</text>
+  <rect x="155" y="122" width="105" height="24" rx="4" fill="#bbdefb"/>
+  <text x="207" y="138" text-anchor="middle" fill="#0d47a1" font-size="10">RollCallPanel</text>
 
-  <!-- 横线到 MainFrame -->
-  <line x1="200" y1="141" x2="200" y2="152" stroke="#90a4ae" stroke-width="1.5"/>
-  <line x1="420" y1="141" x2="420" y2="152" stroke="#90a4ae" stroke-width="1.5"/>
-  <line x1="640" y1="141" x2="640" y2="152" stroke="#90a4ae" stroke-width="1.5"/>
-  <line x1="200" y1="152" x2="640" y2="152" stroke="#90a4ae" stroke-width="1.5"/>
+  <rect x="268" y="122" width="105" height="24" rx="4" fill="#bbdefb"/>
+  <!-- 黄色标记 -->
+  <rect x="268" y="122" width="3" height="24" rx="1.5" fill="url(#myHighlight)"/>
+  <text x="320" y="138" text-anchor="middle" fill="#0d47a1" font-size="10">StatisticsPanel</text>
 
-  <rect x="280" y="152" width="240" height="26" rx="13" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
-  <text x="400" y="170" text-anchor="middle" fill="#1565c0" font-size="12" font-weight="bold">MainFrame (JTabbedPane 主窗口)</text>
+  <rect x="120" y="154" width="190" height="18" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="0.8"/>
+  <text x="215" y="167" text-anchor="middle" fill="#1565c0" font-size="9">MainFrame (JTabbedPane)</text>
 
   <!-- 箭头 -->
-  <line x1="400" y1="178" x2="400" y2="202" stroke="#9e9e9e" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="220" y1="187" x2="220" y2="208" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- ==================== Service 层 ==================== -->
-  <rect x="30" y="208" width="740" height="105" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="208" width="50" height="105" fill="url(#serviceGrad)" rx="10"/>
-  <rect x="60" y="208" width="20" height="105" fill="url(#serviceGrad)"/>
-  <text x="55" y="265" text-anchor="middle" fill="#004d40" font-size="14" font-weight="bold" transform="rotate(-90,55,265)">Service</text>
+  <!-- Service 层 -->
+  <rect x="30" y="213" width="380" height="95" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="30" y="213" width="380" height="22" rx="8" fill="#e0f2f1"/>
+  <rect x="30" y="227" width="380" height="8" fill="#e0f2f1"/>
+  <text x="50" y="229" fill="#004d40" font-size="12" font-weight="bold">Service 业务逻辑层</text>
 
-  <text x="100" y="234" fill="#004d40" font-size="14" font-weight="bold">业务逻辑层</text>
+  <rect x="42" y="243" width="155" height="36" rx="4" fill="#b2dfdb"/>
+  <text x="120" y="258" text-anchor="middle" fill="#004d40" font-size="10" font-weight="bold">RollCallService</text>
+  <text x="120" y="271" text-anchor="middle" fill="#00695c" font-size="8.5">点名 · 加权随机 · 救场</text>
 
-  <rect x="100" y="245" width="300" height="48" rx="6" fill="#e0f2f1" stroke="#80cbc4" stroke-width="1.5"/>
-  <text x="250" y="267" text-anchor="middle" fill="#004d40" font-size="13" font-weight="bold">RollCallService</text>
-  <text x="250" y="283" text-anchor="middle" fill="#00695c" font-size="11">加权随机算法 · 点名状态 · 救场机制</text>
+  <rect x="215" y="243" width="155" height="36" rx="4" fill="#b2dfdb"/>
+  <!-- 黄色标记 -->
+  <rect x="215" y="243" width="3" height="36" rx="1.5" fill="url(#myHighlight)"/>
+  <text x="293" y="258" text-anchor="middle" fill="#004d40" font-size="10" font-weight="bold">StatisticsService</text>
+  <text x="293" y="271" text-anchor="middle" fill="#00695c" font-size="8.5">汇总 · 频次分布 · 排名</text>
 
-  <rect x="430" y="245" width="300" height="48" rx="6" fill="#e0f2f1" stroke="#80cbc4" stroke-width="1.5"/>
-  <!-- 黄色标记：我负责 -->
-  <rect x="430" y="245" width="6" height="48" rx="3" fill="#fdd835"/>
-  <text x="580" y="267" text-anchor="middle" fill="#004d40" font-size="13" font-weight="bold">StatisticsService</text>
-  <text x="580" y="283" text-anchor="middle" fill="#00695c" font-size="11">汇总统计 · 频次分布 · 排名计算</text>
-
-  <!-- 箭头 -->
-  <line x1="400" y1="313" x2="400" y2="338" stroke="#9e9e9e" stroke-width="2" marker-end="url(#arrowDown)"/>
-
-  <!-- ==================== Util 层 ==================== -->
-  <rect x="30" y="343" width="740" height="60" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="343" width="50" height="60" fill="url(#utilGrad)" rx="10"/>
-  <rect x="60" y="343" width="20" height="60" fill="url(#utilGrad)"/>
-  <text x="55" y="378" text-anchor="middle" fill="#880e4f" font-size="14" font-weight="bold" transform="rotate(-90,55,378)">Util</text>
-
-  <text x="100" y="368" fill="#880e4f" font-size="14" font-weight="bold">工具层</text>
-
-  <rect x="100" y="377" width="300" height="16" rx="8" fill="#fce4ec" stroke="#f48fb1" stroke-width="1"/>
-  <text x="250" y="389" text-anchor="middle" fill="#880e4f" font-size="11">WeightedRandom 加权随机算法</text>
-
-  <rect x="430" y="377" width="300" height="16" rx="8" fill="#fce4ec" stroke="#f48fb1" stroke-width="1"/>
-  <text x="580" y="389" text-anchor="middle" fill="#880e4f" font-size="11">ExcelUtil Apache POI 读写</text>
+  <rect x="42" y="284" width="338" height="14" rx="4" fill="#e0f2f1" stroke="#80cbc4" stroke-width="0.8"/>
+  <text x="211" y="294" text-anchor="middle" fill="#00695c" font-size="8.5">利用 Stream API 和 Lambda 表达式进行数据统计</text>
 
   <!-- 箭头 -->
-  <line x1="400" y1="403" x2="400" y2="428" stroke="#9e9e9e" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="220" y1="308" x2="220" y2="329" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- ==================== DAO 层 ==================== -->
-  <rect x="30" y="433" width="740" height="60" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="433" width="50" height="60" fill="url(#daoGrad)" rx="10"/>
-  <rect x="60" y="433" width="20" height="60" fill="url(#daoGrad)"/>
-  <text x="55" y="468" text-anchor="middle" fill="#1b5e20" font-size="14" font-weight="bold" transform="rotate(-90,55,468)">DAO</text>
+  <!-- DAO 层 -->
+  <rect x="30" y="334" width="380" height="70" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="30" y="334" width="380" height="22" rx="8" fill="#e8f5e9"/>
+  <rect x="30" y="348" width="380" height="8" fill="#e8f5e9"/>
+  <text x="50" y="350" fill="#1b5e20" font-size="12" font-weight="bold">DAO 数据访问层</text>
 
-  <text x="100" y="458" fill="#1b5e20" font-size="14" font-weight="bold">数据访问层</text>
-
-  <rect x="100" y="467" width="640" height="16" rx="8" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="1"/>
-  <text x="420" y="479" text-anchor="middle" fill="#1b5e20" font-size="11">StudentDAO — Java 对象序列化 (ObjectOutputStream / ObjectInputStream)</text>
+  <rect x="42" y="364" width="338" height="24" rx="4" fill="#c8e6c9"/>
+  <text x="211" y="380" text-anchor="middle" fill="#1b5e20" font-size="10">StudentDAO — 对象序列化 (ObjectOutputStream / ObjectInputStream)</text>
 
   <!-- 箭头 -->
-  <line x1="400" y1="493" x2="400" y2="518" stroke="#9e9e9e" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="220" y1="404" x2="220" y2="425" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- ==================== Model 层 ==================== -->
-  <rect x="30" y="523" width="740" height="60" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="523" width="50" height="60" fill="url(#modelGrad)" rx="10"/>
-  <rect x="60" y="523" width="20" height="60" fill="url(#modelGrad)"/>
-  <text x="55" y="558" text-anchor="middle" fill="#4a148c" font-size="14" font-weight="bold" transform="rotate(-90,55,558)">Model</text>
+  <!-- Model + Store 行 -->
+  <rect x="30" y="430" width="185" height="70" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="30" y="430" width="185" height="22" rx="8" fill="#f3e5f5"/>
+  <rect x="30" y="444" width="185" height="8" fill="#f3e5f5"/>
+  <text x="50" y="446" fill="#4a148c" font-size="12" font-weight="bold">Model 数据模型</text>
 
-  <text x="100" y="548" fill="#4a148c" font-size="14" font-weight="bold">数据模型层</text>
+  <rect x="42" y="460" width="76" height="24" rx="4" fill="#e1bee7"/>
+  <!-- 黄色标记 -->
+  <rect x="42" y="460" width="3" height="24" rx="1.5" fill="url(#myHighlight)"/>
+  <text x="80" y="476" text-anchor="middle" fill="#4a148c" font-size="9">Student</text>
 
-  <rect x="100" y="557" width="300" height="16" rx="8" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1"/>
-  <!-- 黄色标记：我负责 -->
-  <rect x="100" y="557" width="6" height="16" rx="3" fill="#fdd835"/>
-  <text x="250" y="569" text-anchor="middle" fill="#4a148c" font-size="11">Student 学生实体</text>
+  <rect x="128" y="460" width="76" height="24" rx="4" fill="#e1bee7"/>
+  <!-- 黄色标记 -->
+  <rect x="128" y="460" width="3" height="24" rx="1.5" fill="url(#myHighlight)"/>
+  <text x="166" y="476" text-anchor="middle" fill="#4a148c" font-size="9">RollCallRecord</text>
 
-  <rect x="430" y="557" width="300" height="16" rx="8" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1"/>
-  <!-- 黄色标记：我负责 -->
-  <rect x="430" y="557" width="6" height="16" rx="3" fill="#fdd835"/>
-  <text x="580" y="569" text-anchor="middle" fill="#4a148c" font-size="11">RollCallRecord 点名记录</text>
+  <rect x="228" y="430" width="182" height="70" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="228" y="430" width="182" height="22" rx="8" fill="#eceff1"/>
+  <rect x="228" y="444" width="182" height="8" fill="#eceff1"/>
+  <text x="248" y="446" fill="#37474f" font-size="12" font-weight="bold">Store 文件存储</text>
 
-  <!-- 箭头 -->
-  <line x1="400" y1="583" x2="400" y2="608" stroke="#9e9e9e" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <rect x="240" y="460" width="72" height="24" rx="4" fill="#cfd8dc"/>
+  <text x="276" y="476" text-anchor="middle" fill="#37474f" font-size="9">students.dat</text>
 
-  <!-- ==================== 存储层 ==================== -->
-  <rect x="30" y="613" width="740" height="52" rx="10" fill="#fff" filter="url(#shadowLayer)" stroke="#e0e0e0" stroke-width="1"/>
-  <rect x="30" y="613" width="50" height="52" fill="url(#storeGrad)" rx="10"/>
-  <rect x="60" y="613" width="20" height="52" fill="url(#storeGrad)"/>
-  <text x="55" y="644" text-anchor="middle" fill="#37474f" font-size="14" font-weight="bold" transform="rotate(-90,55,644)">Store</text>
+  <rect x="322" y="460" width="72" height="24" rx="4" fill="#cfd8dc"/>
+  <text x="358" y="476" text-anchor="middle" fill="#37474f" font-size="9">records.dat</text>
 
-  <text x="100" y="635" fill="#37474f" font-size="14" font-weight="bold">文件存储</text>
+  <!-- ========== 右侧：我负责的模块 ========== -->
 
-  <rect x="180" y="637" width="130" height="18" rx="9" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
-  <text x="245" y="650" text-anchor="middle" fill="#37474f" font-size="11">students.dat</text>
+  <text x="470" y="80" fill="#333" font-size="13" font-weight="bold">我负责的模块</text>
 
-  <rect x="340" y="637" width="130" height="18" rx="9" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
-  <text x="405" y="650" text-anchor="middle" fill="#37474f" font-size="11">records.dat</text>
+  <!-- 模块卡片 -->
+  <rect x="440" y="92" width="330" height="115" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="440" y="92" width="330" height="22" rx="8" fill="#fff8e1"/>
+  <rect x="440" y="106" width="330" height="8" fill="#fff8e1"/>
+  <text x="460" y="108" fill="#e65100" font-size="12" font-weight="bold">StatisticsService.java</text>
 
-  <!-- 图例 -->
-  <rect x="530" y="625" width="8" height="8" rx="2" fill="#fdd835"/>
-  <text x="543" y="634" fill="#666" font-size="10">我负责的模块</text>
+  <text x="460" y="130" fill="#555" font-size="10">getSummary() 汇总统计</text>
+  <text x="460" y="146" fill="#555" font-size="10">getFrequency() 频次分布</text>
+  <text x="460" y="162" fill="#555" font-size="10">LinkedHashMap 保持分组顺序</text>
+  <text x="460" y="178" fill="#555" font-size="10">Stream.filter().count() 统计答出</text>
+  <text x="460" y="194" fill="#555" font-size="10">students.sort((a,b) -> b - a) 降序排名</text>
+
+  <!-- 模块卡片 2 -->
+  <rect x="440" y="215" width="330" height="85" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="440" y="215" width="330" height="22" rx="8" fill="#fff8e1"/>
+  <rect x="440" y="229" width="330" height="8" fill="#fff8e1"/>
+  <text x="460" y="231" fill="#e65100" font-size="12" font-weight="bold">StatisticsPanel.java</text>
+
+  <text x="460" y="253" fill="#555" font-size="10">GridLayout(1,4) 四张汇总卡片</text>
+  <text x="460" y="269" fill="#555" font-size="10">JTable 排名表 + 刷新按钮</text>
+  <text x="460" y="285" fill="#555" font-size="10">setForeground(new Color(67, 97, 238)) 科技蓝</text>
+
+  <!-- 模块卡片 3 -->
+  <rect x="440" y="308" width="330" height="80" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="440" y="308" width="330" height="22" rx="8" fill="#fff8e1"/>
+  <rect x="440" y="322" width="330" height="8" fill="#fff8e1"/>
+  <text x="460" y="324" fill="#e65100" font-size="12" font-weight="bold">共享模型</text>
+
+  <text x="460" y="346" fill="#555" font-size="10">Student.java — 学生实体、点名/答出统计</text>
+  <text x="460" y="362" fill="#555" font-size="10">RollCallRecord.java — 点名记录、序列化</text>
+  <text x="460" y="378" fill="#555" font-size="10">getAnswerRate() = totalAnswered / totalCalled × 100</text>
+
+  <!-- 技术特性 -->
+  <text x="470" y="430" fill="#333" font-size="13" font-weight="bold">技术特性</text>
+
+  <rect x="440" y="440" width="330" height="65" rx="8" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="440" y="440" width="330" height="22" rx="8" fill="#fff3e0"/>
+  <rect x="440" y="454" width="330" height="8" fill="#fff3e0"/>
+  <text x="460" y="456" fill="#bf360c" font-size="12" font-weight="bold">数据流</text>
+
+  <text x="460" y="476" fill="#555" font-size="10">从 students.dat / records.dat 读取本地数据</text>
+  <text x="460" y="492" fill="#555" font-size="10">Stream API 过滤 → 汇总计算 → JTable 排名展示</text>
+
+  <!-- 底部图例 -->
+  <rect x="440" y="520" width="8" height="8" rx="2" fill="url(#myHighlight)"/>
+  <text x="455" y="528" fill="#666" font-size="10">黄色高亮标记 = 我负责的模块</text>
+
 </svg>
