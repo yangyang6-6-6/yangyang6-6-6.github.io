@@ -4,26 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>课堂点名系统 — 统计与数据分析模块开发记录 | yangyang6-6-6 的博客</title>
+  <title>课堂点名系统 — 统计与数据分析模块开发记录 | 课堂点名系统</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="基于有状态的课堂点名系统 面向对象程序设计课程设计   项目简介本系统是一个面向高校课堂教学的辅助工具，旨在解决传统随机点名中”有的同学被点名多次、有的同学从未被点到”的不公平问题。系统通过记录每位学生的历史被点名次数和回答问题次数，采用加权随机算法，确保每位学生获得均等的点名机会。当连续多人无法回答问题时，自动启动救场机制，避免课堂僵局。  技术栈   类别 具体技术    开发语言 Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="课堂点名系统 — 统计与数据分析模块开发记录">
 <meta property="og:url" content="https://yangyang6-6-6.github.io/2026/06/26/hello-world/index.html">
-<meta property="og:site_name" content="yangyang6-6-6 的博客">
+<meta property="og:site_name" content="课堂点名系统">
 <meta property="og:description" content="基于有状态的课堂点名系统 面向对象程序设计课程设计   项目简介本系统是一个面向高校课堂教学的辅助工具，旨在解决传统随机点名中”有的同学被点名多次、有的同学从未被点到”的不公平问题。系统通过记录每位学生的历史被点名次数和回答问题次数，采用加权随机算法，确保每位学生获得均等的点名机会。当连续多人无法回答问题时，自动启动救场机制，避免课堂僵局。  技术栈   类别 具体技术    开发语言 Java">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yangyang6-6-6.github.io/images/architecture.svg">
 <meta property="og:image" content="https://yangyang6-6-6.github.io/images/statistics-code.png">
 <meta property="og:image" content="https://yangyang6-6-6.github.io/images/statistics-panel.png">
 <meta property="article:published_time" content="2026-06-26T12:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-26T12:29:26.475Z">
+<meta property="article:modified_time" content="2026-06-26T12:37:56.149Z">
 <meta property="article:author" content="yangyang6-6-6">
 <meta property="article:tag" content="Java, 编程, 技术">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yangyang6-6-6.github.io/images/architecture.svg">
   
-    <link rel="alternate" href="/atom.xml" title="yangyang6-6-6 的博客" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="课堂点名系统" type="application/atom+xml">
   
   
   
@@ -44,7 +44,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">yangyang6-6-6 的博客</a>
+        <a href="/" id="logo">课堂点名系统</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -174,35 +174,24 @@
 <li><strong>MVC 架构</strong> — 界面、业务逻辑、数据访问三层分离</li>
 </ol>
 <hr>
-<h2 id="技术要点"><a href="#技术要点" class="headerlink" title="技术要点"></a>技术要点</h2><table>
-<thead>
-<tr>
-<th>问题</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LinkedHashMap 的作用</td>
-<td>保持插入顺序，确保频次分组展示顺序固定</td>
-</tr>
-<tr>
-<td>Stream API</td>
-<td>filter().count() 简洁完成过滤计数</td>
-</tr>
-<tr>
-<td>Lambda 表达式</td>
-<td>(a, b) -&gt; b.getTotalCalled() - a.getTotalCalled() 简化排序</td>
-</tr>
-<tr>
-<td>成功率计算</td>
-<td>答出数 &#x2F; 被点名数 x 100，分母为 0 时返回 0</td>
-</tr>
-</tbody></table>
+<h2 id="解答问题"><a href="#解答问题" class="headerlink" title="解答问题"></a>解答问题</h2><h3 id="Q1-为什么用-LinkedHashMap-而不是-HashMap？"><a href="#Q1-为什么用-LinkedHashMap-而不是-HashMap？" class="headerlink" title="Q1: 为什么用 LinkedHashMap 而不是 HashMap？"></a>Q1: 为什么用 LinkedHashMap 而不是 HashMap？</h3><p>频次分布需要按固定顺序展示（0次 → 1<del>3次 → 4</del>6次 → 7~10次 → 10次以上），HashMap 不保证顺序，而 LinkedHashMap 维护了插入顺序，确保每次展示分组顺序一致。</p>
+<h3 id="Q2-Stream-API-在这段代码中起了什么作用？"><a href="#Q2-Stream-API-在这段代码中起了什么作用？" class="headerlink" title="Q2: Stream API 在这段代码中起了什么作用？"></a>Q2: Stream API 在这段代码中起了什么作用？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">answered</span> <span class="operator">=</span> records.stream()</span><br><span class="line">    .filter(RollCallRecord::isAnswered)</span><br><span class="line">    .count();</span><br></pre></td></tr></table></figure>
+
+<p>一行代码完成”遍历集合 → 过滤出已答出记录 → 计数”的全过程，比传统 for 循环加 if 判断更简洁，语义也更清晰。</p>
+<h3 id="Q3-Lambda-表达式简化了什么？"><a href="#Q3-Lambda-表达式简化了什么？" class="headerlink" title="Q3: Lambda 表达式简化了什么？"></a>Q3: Lambda 表达式简化了什么？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">students.sort((a, b) -&gt; b.getTotalCalled() - a.getTotalCalled());</span><br></pre></td></tr></table></figure>
+
+<p>传统写法需要创建一个 Comparator 匿名内部类，Lambda 用一句话表达”按被点名次数降序排列”，代码量减少一半以上。</p>
+<h3 id="Q4-成功率是怎么计算的？"><a href="#Q4-成功率是怎么计算的？" class="headerlink" title="Q4: 成功率是怎么计算的？"></a>Q4: 成功率是怎么计算的？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getAnswerRate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (totalCalled == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">double</span>) totalAnswered / totalCalled * <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果学生从未被点名过（分母为 0），直接返回 0 避免除零异常；否则用答出数除以被点名数再乘以 100，得出百分比形式的成功率。</p>
+<h3 id="Q5-MVC-架构在这个模块中如何体现？"><a href="#Q5-MVC-架构在这个模块中如何体现？" class="headerlink" title="Q5: MVC 架构在这个模块中如何体现？"></a>Q5: MVC 架构在这个模块中如何体现？</h3><ul>
+<li><strong>Model</strong>：Student（学生数据）、RollCallRecord（点名记录）— 承载数据</li>
+<li><strong>View</strong>：StatisticsPanel（统计界面）— 负责数据可视化展示</li>
+<li><strong>Controller&#x2F;Service</strong>：StatisticsService（统计服务）— 业务逻辑计算，介于 Model 和 View 之间</li>
+</ul>
 <hr>
 <h2 id="界面截图"><a href="#界面截图" class="headerlink" title="界面截图"></a>界面截图</h2><p>以下截图来自个人 GitHub 上传的代码运行效果：</p>
-<p><strong>StatisticsService.java 代码实现</strong></p>
 <p><img src="/images/statistics-code.png"></p>
-<p><strong>StatisticsPanel.java 统计界面展示</strong></p>
 <p><img src="/images/statistics-panel.png"></p>
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这个项目，我对 Java Swing 桌面应用开发、Stream API 数据处理、MVC 架构设计有了更深入的理解。该模块完整覆盖了从数据采集、计算到可视化展示的全链路流程。</p>

@@ -156,14 +156,46 @@ String[] cols = {"排名", "学号", "姓名", "班级",
 
 ---
 
-## 技术要点
+## 解答问题
 
-| 问题 | 说明 |
-|------|------|
-| LinkedHashMap 的作用 | 保持插入顺序，确保频次分组展示顺序固定 |
-| Stream API | filter().count() 简洁完成过滤计数 |
-| Lambda 表达式 | (a, b) -> b.getTotalCalled() - a.getTotalCalled() 简化排序 |
-| 成功率计算 | 答出数 / 被点名数 x 100，分母为 0 时返回 0 |
+### Q1: 为什么用 LinkedHashMap 而不是 HashMap？
+
+频次分布需要按固定顺序展示（0次 → 1~3次 → 4~6次 → 7~10次 → 10次以上），HashMap 不保证顺序，而 LinkedHashMap 维护了插入顺序，确保每次展示分组顺序一致。
+
+### Q2: Stream API 在这段代码中起了什么作用？
+
+```java
+long answered = records.stream()
+    .filter(RollCallRecord::isAnswered)
+    .count();
+```
+
+一行代码完成"遍历集合 → 过滤出已答出记录 → 计数"的全过程，比传统 for 循环加 if 判断更简洁，语义也更清晰。
+
+### Q3: Lambda 表达式简化了什么？
+
+```java
+students.sort((a, b) -> b.getTotalCalled() - a.getTotalCalled());
+```
+
+传统写法需要创建一个 Comparator 匿名内部类，Lambda 用一句话表达"按被点名次数降序排列"，代码量减少一半以上。
+
+### Q4: 成功率是怎么计算的？
+
+```java
+public double getAnswerRate() {
+    if (totalCalled == 0) return 0.0;
+    return (double) totalAnswered / totalCalled * 100;
+}
+```
+
+如果学生从未被点名过（分母为 0），直接返回 0 避免除零异常；否则用答出数除以被点名数再乘以 100，得出百分比形式的成功率。
+
+### Q5: MVC 架构在这个模块中如何体现？
+
+- **Model**：Student（学生数据）、RollCallRecord（点名记录）— 承载数据
+- **View**：StatisticsPanel（统计界面）— 负责数据可视化展示
+- **Controller/Service**：StatisticsService（统计服务）— 业务逻辑计算，介于 Model 和 View 之间
 
 ---
 
@@ -171,11 +203,7 @@ String[] cols = {"排名", "学号", "姓名", "班级",
 
 以下截图来自个人 GitHub 上传的代码运行效果：
 
-**StatisticsService.java 代码实现**
-
 ![](/images/statistics-code.png)
-
-**StatisticsPanel.java 统计界面展示**
 
 ![](/images/statistics-panel.png)
 
