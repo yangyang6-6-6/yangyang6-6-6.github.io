@@ -1,0 +1,48 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+rss: /atom.xml
+banner: ""
+subtitle: 记录与分享
+links:
+  github: https://github.com/yangyang6-6-6
+
+# Content
+excerpt_link: Read More
+fancybox: false
+
+# Footer
+copyright:
+
+# Sidebar
+sidebar: false
+
+# Widgets
+widgets:
+
+archive_type: 'monthly'
+show_count: false
+recent_posts_limits: 5
+
+# Miscellaneous
+google_analytics:
+gauges_analytics:
+favicon:
+twitter:
+fb_admins:
+fb_app_id:
+
+# Comment
+disqus_shortname:
+valine:
+  enable: false
+  appId:
+  appKey:
+  notify: false
+  verify: false
+  pageSize: 10
+  avatar: mm
+  lang: zh-cn
+  placeholder: Just go go
+  guest_info: nick,mail,link
