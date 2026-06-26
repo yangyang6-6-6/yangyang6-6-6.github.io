@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>课堂点名系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="课堂点名系统">
+<meta property="og:url" content="https://yangyang6-6-6.github.io/index.html">
+<meta property="og:site_name" content="课堂点名系统">
+<meta property="og:description" content="个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yangyang6-6-6">
+<meta property="article:tag" content="Java, 编程, 技术">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="课堂点名系统" type="application/atom+xml">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">课堂点名系统</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">记录与分享</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/yangyang6-6-6"><span class="fa fa-github"></span></a>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/06/26/hello-world/">课堂点名系统 — 统计与数据分析模块开发记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="基于有状态的课堂点名系统"><a href="#基于有状态的课堂点名系统" class="headerlink" title="基于有状态的课堂点名系统"></a>基于有状态的课堂点名系统</h1><blockquote>
+<p>面向对象程序设计课程设计</p>
+</blockquote>
+<hr>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>本系统是一个面向高校课堂教学的辅助工具，旨在解决传统随机点名中”有的同学被点名多次、有的同学从未被点到”的不公平问题。系统通过记录每位学生的历史被点名次数和回答问题次数，采用加权随机算法，确保每位学生获得均等的点名机会。当连续多人无法回答问题时，自动启动救场机制，避免课堂僵局。</p>
+<hr>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>具体技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发语言</td>
+<td>Java 8+</td>
+</tr>
+<tr>
+<td>GUI框架</td>
+<td>Java Swing (JFrame &#x2F; JTabbedPane &#x2F; JTable)</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>Java对象序列化 (ObjectOutputStream &#x2F; ObjectInputStream)</td>
+</tr>
+<tr>
+<td>第三方库</td>
+<td>Apache POI 5.3.0 (Excel读写)</td>
+</tr>
+<tr>
+<td>架构模式</td>
+<td>MVC三层架构 + DAO数据访问模式</td>
+</tr>
+<tr>
+<td>项目管理</td>
+<td>Git + GitHub</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><p><img src="/images/architecture.svg"></p>
+<p><em>黄色标记为我负责的模块</em></p>
+<hr>
+<h2 id="我负责的模块"><a href="#我负责的模块" class="headerlink" title="我负责的模块"></a>我负责的模块</h2><h3 id="1-共享模型"><a href="#1-共享模型" class="headerlink" title="1. 共享模型"></a>1. 共享模型</h3><p><strong>Student.java</strong> 学生实体</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String studentNo;    <span class="comment">// 学号</span></span><br><span class="line">    <span class="keyword">private</span> String name;         <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">private</span> String className;    <span class="comment">// 班级</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> totalCalled;     <span class="comment">// 被点名总次数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> totalAnswered;   <span class="comment">// 答出总次数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> onLeave;     <span class="comment">// 是否请假</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getAnswerRate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (totalCalled == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">double</span>) totalAnswered / totalCalled * <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>RollCallRecord.java</strong> 点名记录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RollCallRecord</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String studentNo;     <span class="comment">// 学号</span></span><br><span class="line">    <span class="keyword">private</span> String studentName;   <span class="comment">// 学生姓名</span></span><br><span class="line">    <span class="keyword">private</span> String courseName;    <span class="comment">// 课程名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> answered;     <span class="comment">// 是否答出</span></span><br><span class="line">    <span class="keyword">private</span> String callTime;      <span class="comment">// 点名时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-统计服务-—-StatisticsService-java"><a href="#2-统计服务-—-StatisticsService-java" class="headerlink" title="2. 统计服务 — StatisticsService.java"></a>2. 统计服务 — StatisticsService.java</h3><p><strong>汇总统计</strong></p>
+<p>使用 <code>LinkedHashMap</code> 收集四项核心指标，保持插入顺序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title function_">getSummary</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Student&gt; students = dao.loadStudents();</span><br><span class="line">    List&lt;RollCallRecord&gt; records = dao.loadRecords();</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Object&gt; map = <span class="keyword">new</span> <span class="title class_">LinkedHashMap</span>&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">&quot;totalStudents&quot;</span>, students.size());</span><br><span class="line">    map.put(<span class="string">&quot;totalCalls&quot;</span>, records.size());</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="variable">answered</span> <span class="operator">=</span> records.stream()</span><br><span class="line">        .filter(RollCallRecord::isAnswered)</span><br><span class="line">        .count();</span><br><span class="line">    map.put(<span class="string">&quot;totalAnswered&quot;</span>, answered);</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> <span class="variable">rate</span> <span class="operator">=</span> records.isEmpty() ? <span class="number">0</span> :</span><br><span class="line">        (<span class="type">double</span>) answered / records.size() * <span class="number">100</span>;</span><br><span class="line">    map.put(<span class="string">&quot;overallRate&quot;</span>, String.format(<span class="string">&quot;%.1f&quot;</span>, rate));</span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>点名频次分布</strong></p>
+<p>按被点名次数将学生分组，五个区间：0次 &#x2F; 1<del>3次 &#x2F; 4</del>6次 &#x2F; 7~10次 &#x2F; 10次以上。使用 <code>LinkedHashMap</code> 确保分组顺序固定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; dist = <span class="keyword">new</span> <span class="title class_">LinkedHashMap</span>&lt;&gt;();</span><br><span class="line">dist.put(<span class="string">&quot;0次&quot;</span>, <span class="number">0</span>);</span><br><span class="line">dist.put(<span class="string">&quot;1~3次&quot;</span>, <span class="number">0</span>);</span><br><span class="line">dist.put(<span class="string">&quot;4~6次&quot;</span>, <span class="number">0</span>);</span><br><span class="line">dist.put(<span class="string">&quot;7~10次&quot;</span>, <span class="number">0</span>);</span><br><span class="line">dist.put(<span class="string">&quot;10次以上&quot;</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Student s : students) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.getTotalCalled();</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) dist.merge(<span class="string">&quot;0次&quot;</span>, <span class="number">1</span>, Integer::sum);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n &lt;= <span class="number">3</span>) dist.merge(<span class="string">&quot;1~3次&quot;</span>, <span class="number">1</span>, Integer::sum);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n &lt;= <span class="number">6</span>) dist.merge(<span class="string">&quot;4~6次&quot;</span>, <span class="number">1</span>, Integer::sum);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n &lt;= <span class="number">10</span>) dist.merge(<span class="string">&quot;7~10次&quot;</span>, <span class="number">1</span>, Integer::sum);</span><br><span class="line">    <span class="keyword">else</span> dist.merge(<span class="string">&quot;10次以上&quot;</span>, <span class="number">1</span>, Integer::sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-统计界面-—-StatisticsPanel-java"><a href="#3-统计界面-—-StatisticsPanel-java" class="headerlink" title="3. 统计界面 — StatisticsPanel.java"></a>3. 统计界面 — StatisticsPanel.java</h3><p>界面顶部为四张汇总卡片，使用 <code>GridLayout(1, 4)</code> 布局：</p>
+<ul>
+<li>学生总数</li>
+<li>总点名次数</li>
+<li>总答出次数</li>
+<li>总体成功率</li>
+</ul>
+<p>中间为 <code>JTable</code> 排名表，按被点名次数降序排列：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">students.sort((a, b) -&gt; b.getTotalCalled() - a.getTotalCalled());</span><br></pre></td></tr></table></figure>
+
+<p>表格列：排名、学号、姓名、班级、被点名、答出、成功率。</p>
+<p>底部为刷新按钮，点击后重新加载所有数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">JPanel</span> <span class="variable">cards</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">1</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">String[] cols = &#123;<span class="string">&quot;排名&quot;</span>, <span class="string">&quot;学号&quot;</span>, <span class="string">&quot;姓名&quot;</span>, <span class="string">&quot;班级&quot;</span>,</span><br><span class="line">                 <span class="string">&quot;被点名&quot;</span>, <span class="string">&quot;答出&quot;</span>, <span class="string">&quot;成功率&quot;</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="项目亮点"><a href="#项目亮点" class="headerlink" title="项目亮点"></a>项目亮点</h2><ol>
+<li><strong>加权随机算法</strong> — 权重 &#x3D; 100 &#x2F; (被点名次数 + 1)，累积权重法选择，确保点名机会均等</li>
+<li><strong>双重救场机制</strong> — 连续 3 人未答出时从高回答率学生中选取；再连续 3 人失败时提示”题目太难”</li>
+<li><strong>请假管理</strong> — 标记请假学生，点名时自动排除</li>
+<li><strong>MVC 架构</strong> — 界面、业务逻辑、数据访问三层分离</li>
+</ol>
+<hr>
+<h2 id="解答问题"><a href="#解答问题" class="headerlink" title="解答问题"></a>解答问题</h2><h3 id="Q1-为什么用-LinkedHashMap-而不是-HashMap？"><a href="#Q1-为什么用-LinkedHashMap-而不是-HashMap？" class="headerlink" title="Q1: 为什么用 LinkedHashMap 而不是 HashMap？"></a>Q1: 为什么用 LinkedHashMap 而不是 HashMap？</h3><p>频次分布需要按固定顺序展示（0次 → 1<del>3次 → 4</del>6次 → 7~10次 → 10次以上），HashMap 不保证顺序，而 LinkedHashMap 维护了插入顺序，确保每次展示分组顺序一致。</p>
+<h3 id="Q2-Stream-API-在这段代码中起了什么作用？"><a href="#Q2-Stream-API-在这段代码中起了什么作用？" class="headerlink" title="Q2: Stream API 在这段代码中起了什么作用？"></a>Q2: Stream API 在这段代码中起了什么作用？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">answered</span> <span class="operator">=</span> records.stream()</span><br><span class="line">    .filter(RollCallRecord::isAnswered)</span><br><span class="line">    .count();</span><br></pre></td></tr></table></figure>
+
+<p>一行代码完成”遍历集合 → 过滤出已答出记录 → 计数”的全过程，比传统 for 循环加 if 判断更简洁，语义也更清晰。</p>
+<h3 id="Q3-Lambda-表达式简化了什么？"><a href="#Q3-Lambda-表达式简化了什么？" class="headerlink" title="Q3: Lambda 表达式简化了什么？"></a>Q3: Lambda 表达式简化了什么？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">students.sort((a, b) -&gt; b.getTotalCalled() - a.getTotalCalled());</span><br></pre></td></tr></table></figure>
+
+<p>传统写法需要创建一个 Comparator 匿名内部类，Lambda 用一句话表达”按被点名次数降序排列”，代码量减少一半以上。</p>
+<h3 id="Q4-成功率是怎么计算的？"><a href="#Q4-成功率是怎么计算的？" class="headerlink" title="Q4: 成功率是怎么计算的？"></a>Q4: 成功率是怎么计算的？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getAnswerRate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (totalCalled == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">double</span>) totalAnswered / totalCalled * <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果学生从未被点名过（分母为 0），直接返回 0 避免除零异常；否则用答出数除以被点名数再乘以 100，得出百分比形式的成功率。</p>
+<h3 id="Q5-MVC-架构在这个模块中如何体现？"><a href="#Q5-MVC-架构在这个模块中如何体现？" class="headerlink" title="Q5: MVC 架构在这个模块中如何体现？"></a>Q5: MVC 架构在这个模块中如何体现？</h3><ul>
+<li><strong>Model</strong>：Student（学生数据）、RollCallRecord（点名记录）— 承载数据</li>
+<li><strong>View</strong>：StatisticsPanel（统计界面）— 负责数据可视化展示</li>
+<li><strong>Controller&#x2F;Service</strong>：StatisticsService（统计服务）— 业务逻辑计算，介于 Model 和 View 之间</li>
+</ul>
+<hr>
+<h2 id="界面截图"><a href="#界面截图" class="headerlink" title="界面截图"></a>界面截图</h2><p>以下截图来自个人 GitHub 上传的代码运行效果：</p>
+<p><img src="/images/statistics-code.png"></p>
+<p><img src="/images/statistics-panel.png"></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这个项目，我对 Java Swing 桌面应用开发、Stream API 数据处理、MVC 架构设计有了更深入的理解。该模块完整覆盖了从数据采集、计算到可视化展示的全链路流程。</p>
+<blockquote>
+<p>Java 8+ | Swing | Stream API | Lambda | Apache POI | Git</p>
+<p>课程设计 2026</p>
+</blockquote>
+<hr>
+<h2 id="项目仓库"><a href="#项目仓库" class="headerlink" title="项目仓库"></a>项目仓库</h2><ul>
+<li><strong>完整项目仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/qluliuliuliu/classroom-rollcall-system">github.com&#x2F;qluliuliuliu&#x2F;classroom-rollcall-system</a></li>
+<li><strong>个人Git仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/yangyang6-6-6/Java-">github.com&#x2F;yangyang6-6-6&#x2F;Java-</a></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+  
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 yangyang6-6-6<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
